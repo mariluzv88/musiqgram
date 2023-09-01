@@ -31,6 +31,16 @@ const login = async(req,res)=>{
    res.status(400).json({msg:err.message,reason:'Bad Credentials'})
   }
 }
+const update = async(req,res)=>{
+  try{
+   if(req.body.userId === req.params.id || req.user.isAdmin){
+    const user = await User.findByIdAndUpdate(req.params.id,{$set: req.body})
+   }
+   res.status(200).json("Your Account has been updated.")
+  }catch (err){
+    res.status(400).json({msg:err.message,reason:'Bad Credentials'})
+  }
+}
 // ------Helper Function
 function createJWT(user) {
     return jwt.sign(
@@ -48,5 +58,5 @@ function createJWT(user) {
 
 
 module.exports = {
-    create,login,checkToken,
+    create,login,checkToken,update
 }
