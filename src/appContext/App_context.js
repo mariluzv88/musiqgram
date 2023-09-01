@@ -1,11 +1,13 @@
 import  { createContext, useEffect,useState } from 'react'
 import axios from 'axios'
 export const AppContext = createContext()
+const posts = require('../ultilities/post.api');
 
 const AppContextProvider = (props)=>{
     const [user,setUser] =useState(null)
     const [search,setSearch] =useState('')
     const [musiq,setMusiq]=useState(null)
+    const [post,setPost]=useState(null)
     const getMusiq =async (searchTerm)=>{
         const response = await axios.get(`https://shazam.p.rapidapi.com/search?term=${search}`,
         // {params: {term: ''}},
@@ -17,6 +19,9 @@ const AppContextProvider = (props)=>{
         console.log(res)
         setMusiq(res)
     }
+    const getPost= ()=>{
+     setPost(posts)
+    }
     // musiqSearch = () => {
 
     // }
@@ -24,7 +29,7 @@ const AppContextProvider = (props)=>{
       getMusiq()
     },[])
     return(
-        <AppContext.Provider value={{musiq,setMusiq,search,setSearch,getMusiq}}>
+        <AppContext.Provider value={{musiq,setMusiq,search,setSearch,getMusiq,post,setPost}}>
          {props.children}
         </AppContext.Provider>
     )

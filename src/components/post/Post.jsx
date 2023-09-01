@@ -15,9 +15,10 @@ function Post() {
   return (
     <div className='post'>
    <h1>Create Post</h1>
+   <a href='/post:id'>X</a>
    <form onSubmit={handleSubmit} className='form' action='/post' method='POST'>
-    image:<input type='text' name='img'/>
-    song:<input type='text' name=''onChange={handleChange} value={search}/>
+    image:<input type='text' name='image'/>
+    song:<input type='text' name='audio'onChange={handleChange} value={search}/>
     <input className='subBtn' type="submit" name="" value=" SUBMIT"/>
    </form>
    {/* {musiq?( musiq.map((tracks,i)=>{
