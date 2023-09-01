@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
+
 const PostSchema = new mongoose.Schema({
    image:  { type: String, required: true },
-   audio:  { type: String, required: true }
+  song:  { type: String }
    
 });
 
-const aPost = mongoose.model('aPost', PostSchema);
 
-module.exports = aPost;
+
+module.exports = mongoose.model('aPost', PostSchema);
