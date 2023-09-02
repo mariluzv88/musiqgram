@@ -28,17 +28,15 @@ const userSchema = new Schema({
       type:String,
       default:""
     },
-    coverPic2:{
-      type:String,
-      default:""
-    },
     deatz:{
      type:String,
-     maxLength:80
+     maxLength:80,
+     default:""
     },
     mood:{
     type:String,
-    // enum:[ :face,2,3]
+    enum:[ '😊','😒','😢'],
+    default: '😊'
     },
     followers:{
       type:Array,

@@ -32,15 +32,18 @@ const login = async(req,res)=>{
   }
 }
 const update = async(req,res)=>{
-  try{
-   if(req.body.userId === req.params.id || req.user.isAdmin){
+ 
+   if(req.body.userId === req.params._id || req.body.isAdmin){
+    try{
     const user = await User.findByIdAndUpdate(req.params.id,{$set: req.body})
-   }
-   res.status(200).json("Your Account has been updated.")
-  }catch (err){
+  
+    res.status(200).json("Your Account has been updated.")
+  } catch (err){
     res.status(400).json({msg:err.message,reason:'Bad Credentials'})
+  }}else{
+    return res.status(400).json('Bad Credentials')
   }
-}
+   }
 // ------Helper Function
 function createJWT(user) {
     return jwt.sign(
