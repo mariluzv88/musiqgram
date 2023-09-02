@@ -2,7 +2,7 @@ const User = require('../../models/User')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
-const create = async (req, res) => {
+const createUser = async (req, res) => {
     console.log(req.body)
   try {
     // Add user to database
@@ -19,7 +19,7 @@ const create = async (req, res) => {
     res.status(400).json(err);
   }
 };
-const login = async(req,res)=>{
+const loginUser = async(req,res)=>{
   try{
     // find user by email
     const user = await User.findOne({email:req.body.email})
@@ -31,7 +31,18 @@ const login = async(req,res)=>{
    res.status(400).json({msg:err.message,reason:'Bad Credentials'})
   }
 }
-const update = async(req,res)=>{
+const deleteUser = async(req,res)=>{
+  if (req.body.userId === req.params._id || req.body.isAdmin){
+    try{
+      const user = await User.findByIdAndRemove(req.params.id)
+    } catch(err){
+      res.status(400).json({msg:err.message,reason:'Bad Credentials'})
+    }
+  }else{
+    return  res.status(401).json('Unauthorized')
+  }
+}
+const editUser = async(req,res)=>{
  
    if(req.body.userId === req.params._id || req.body.isAdmin){
     try{
@@ -61,5 +72,5 @@ function createJWT(user) {
 
 
 module.exports = {
-    create,login,checkToken,update
+    createUser,loginUser,checkToken,editUser,deleteUser
 }
