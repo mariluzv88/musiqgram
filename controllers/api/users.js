@@ -19,6 +19,34 @@ const createUser = async (req, res) => {
     res.status(400).json(err);
   }
 };
+const heartUser = async(req,res)=>{
+  let followedUser = await User.findById(req.params._id)
+  let mainUser = await User.findById(req.params._id)
+  if(mainUser.followers.includes(!followedUser)){
+    try{
+      mainUser.findByIdAndUpdate({$push:{following:followedUser }})
+      followedUser.findByIdAndUpdate({$push:{followers:mainUser }})
+    }catch (err){
+      res.status(401).json({msg:err.message,reason:`error you already follow ${followedUser}`})
+    }
+  }else{
+    res.status(400).json(err);
+  }
+}
+const unHeartUser = async(req,res)=>{
+  let followedUser = await User.findById(req.params._id)
+  let mainUser = await User.findById(req.params._id)
+  if(mainUser.followers.includes(followedUser)){
+    try{
+      mainUser.findByIdAndUpdate({$pull:{following:followedUser }})
+      followedUser.findByIdAndUpdate({$pull:{followers:mainUser }})
+    }catch (err){
+      res.status(401).json({msg:err.message,reason:`error you don't follow ${followedUser}`})
+    }
+  }else{
+    res.status(400).json(err);
+  }
+}
 const loginUser = async(req,res)=>{
   try{
     // find user by email
@@ -34,7 +62,7 @@ const loginUser = async(req,res)=>{
 const deleteUser = async(req,res)=>{
   if (req.body.userId === req.params._id || req.body.isAdmin){
     try{
-      const user = await User.findByIdAndRemove(req.params.id)
+      const user = await User.findByIdAndRemove(req.params.id,token)
     } catch(err){
       res.status(400).json({msg:err.message,reason:'Bad Credentials'})
     }
@@ -72,5 +100,5 @@ function createJWT(user) {
 
 
 module.exports = {
-    createUser,loginUser,checkToken,editUser,deleteUser
+    createUser,loginUser,checkToken,editUser,deleteUser,heartUser,unHeartUser
 }

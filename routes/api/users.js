@@ -12,9 +12,11 @@ router.get('/check-token', usersCtrl.checkToken);
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
 // update user
 router.put('/:id/edit', usersCtrl.editUser)
+// follow
+router.put('/:id/follow', usersCtrl.heartUser)
+// unfollow
+router.put('/:id/unfollow', usersCtrl.unHeartUser)
 // delete user
 router.delete('/:id',usersCtrl.deleteUser)
-// follow
-// unfollow
 
 module.exports = router;
