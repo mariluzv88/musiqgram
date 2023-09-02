@@ -20,31 +20,31 @@ const createUser = async (req, res) => {
   }
 };
 const heartUser = async(req,res)=>{
-  let followedUser = await User.findById(req.params._id)
-  let mainUser = await User.findById(req.params._id)
-  if(mainUser.followers.includes(!followedUser)){
+  const followedUser = await User.findById(req.params.id)
+  const mainUser = await User.findById(req.body.userID)
+  if(!followedUser.followers.includes(mainUser)){
     try{
-      mainUser.findByIdAndUpdate({$push:{following:followedUser }})
-      followedUser.findByIdAndUpdate({$push:{followers:mainUser }})
+      await mainUser.updateOne({$push:{following:req.params.id }})
+      await followedUser.updateOne({$push:{followers:req.body.userID}})
     }catch (err){
-      res.status(401).json({msg:err.message,reason:`error you already follow ${followedUser}`})
+      res.status(401).json({msg:err.message,reason:`error you already follow ${followedUser.name}`})
     }
   }else{
-    res.status(400).json(err);
+    res.status(500).json("Invalid");
   }
 }
 const unHeartUser = async(req,res)=>{
-  let followedUser = await User.findById(req.params._id)
-  let mainUser = await User.findById(req.params._id)
-  if(mainUser.followers.includes(followedUser)){
+  const followedUser = await User.findById(req.params.id)
+  const mainUser = await User.findById(req.body.userID)
+  if(followedUser.followers.includes(req.body.userID)){
     try{
-      mainUser.findByIdAndUpdate({$pull:{following:followedUser }})
-      followedUser.findByIdAndUpdate({$pull:{followers:mainUser }})
+     await  mainUser.findByIdAndUpdate({$pull:{following:req.params.id}})
+    await followedUser.findByIdAndUpdate({$pull:{followers:req.body.userID}})
     }catch (err){
-      res.status(401).json({msg:err.message,reason:`error you don't follow ${followedUser}`})
+      res.status(401).json({msg:err.message,reason:`error you don't follow ${followedUser.name}`})
     }
   }else{
-    res.status(400).json(err);
+    res.status(500).json("Invalid");
   }
 }
 const loginUser = async(req,res)=>{
