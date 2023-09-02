@@ -2,10 +2,14 @@ const mongoose = require('mongoose');
 
 
 const PostSchema = new mongoose.Schema({
+  
+  userID:{ type: String, required: true },
    image:  { type: String, required: true },
-  song:  { type: String }
+  song:  { type: String, required: true},
+},
+  {timestamps:true}
    
-});
+);
 
 
 

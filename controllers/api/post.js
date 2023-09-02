@@ -11,11 +11,12 @@ const show = async(req, res) => {
 const createPost = async (req, res) => {
     try{
         const post = await aPost.create(req.body);
-        console.log(aPost)
+        await post.save()
+      
         console.log(post)
         res.status(200).json(post);
-    }catch(e){
-        res.status(400).json({ msg: e.message });
+    }catch(err){
+        res.status(400).json({ msg:err.message,reason:'Invalid'  });
     } 
 }
 async function index(req, res) {

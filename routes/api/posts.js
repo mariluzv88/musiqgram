@@ -5,9 +5,11 @@ const postCtrl = require('../../controllers/api/post');
 
 
 // GET feed
-router.get('/post', postCtrl.index);
+router.get('/', postCtrl.index);
 // get post
-router.get('/post/:id', postCtrl.show);
-// get new post
-router.post('/post/new',postCtrl.createPost)
+router.get('/:id', postCtrl.show);
+// create new post
+router.post('/new',postCtrl.createPost)
+// like Post
+// add post to playlist
 module.exports = router;
