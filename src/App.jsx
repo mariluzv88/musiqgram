@@ -19,8 +19,8 @@ function App() {
      {
        user?
        <>
-          <NavBar user={user} setUser={setUser}/>
-          <Main/>
+          {/* <NavBar /> */}
+          <Main user={user} setUser={setUser}/>
          
           <Routes>
              <Route path='/post/new' element={<Post user={user}/>}/>

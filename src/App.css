@@ -1,130 +1,62 @@
-:root {
-  --white: #000000;
-  --tan-1: #312342;
-  --tan-2: #ffff1c;
-  --tan-3: #f2ff00;
-  --tan-4: #8e72f5;
-  --orange: #5e32ef;
-  --text-light: #968c84;
-  --text-dark: #615954;
-}
-
-*, *:before, *:after {
-  box-sizing: border-box;
-}
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  font-family: 'Franklin Gothic Medium';
+  background-color: rgb(19, 19, 19);
+  color: white;
   padding: 2vmin;
   height: 100vh;
 }
-.App{
+/* .App{
   text-align: center;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-#root {
-  height: 100%;
-}
-
-.align-ctr {
-  text-align: center;
-}
-
-.align-rt {
-  text-align: right;
-}
-
-.smaller {
-  font-size: smaller;
-}
-
-.flex-ctr-ctr {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flex-col {
   flex-direction: column;
-}
-
-.flex-j-end {
-  justify-content: flex-end;
-}
-
-.scroll-y {
-  overflow-y: scroll;
-}
-
-.section-heading {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--tan-1);
-  color: var(--text-dark);
-  border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
-  padding: .6vmin;
-  text-align: center;
-  font-size: 2vmin;
-}
-
-.form-container {
-  padding: 3vmin;
-  background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
-}
-
+} */
 p.error-message {
-  color: var(--orange);
+  color: magenta;
   text-align: center;
 }
-
-form {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 1.25vmin;
-  color: var(--text-light);
+.login {
+  width: 50%;
+ border-radius: 15px;
+ border: solid white;
+ padding: 20px;
 }
-
+.title{
+  padding:50px;
+  border-radius: 1vmin;
+    color: orangered;
+  font-family: 'Franklin Gothic Medium';
+  font-size: 20px;
+  text-align: center;
+}
+.formContainer{
+ width: 100px;
+  padding: 50px 40px 0px 120px ;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
 label {
   font-size: 2vmin;
+  color: orangered;
+  font-family: 'Franklin Gothic Medium';
+  font-size: 20px;
+}
+.auth{
   display: flex;
-  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 50px;
+  border-radius: 15px;
+  border: solid white;
+  height: 300px;
 }
-
-input {
-  padding: 1vmin;
-  font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
-  border-radius: .5vmin;
-  color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass */
-  outline: none;
-}
-
-input:focus {
-  border-color: var(--orange);
-}
-
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
-  color: var(--white);
-  background-color: var(--orange);
-  font-size: 2vmin;
+  color: orangered;
+  font-size: 3vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
@@ -132,26 +64,18 @@ button, a.button {
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
-}
+  margin-top: 20px;
 
-button.btn-sm {
-  font-size: 1.5vmin;
-  padding: .6vmin .8vmin;
 }
-
-button.btn-xs {
-  font-size: 1vmin;
-  padding: .4vmin .5vmin;
-}
-
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: red;
+  color: black;
 }
-
-button[type="submit"] {
-  grid-column: span 2;
-  margin: 1vmin 0 0;
+a{
+  text-decoration: none;
+  cursor: pointer;
+  color: orangered;
 }
 .post{
   border: solid thick rgb(39, 29, 59);
@@ -161,12 +85,13 @@ button[type="submit"] {
   justify-content: scenter;
   padding: 80px;
 }
-.form{
+/* .form{
   display: flex;
   flex-direction: column;
   height: 150px;
   width: 650px;
-}
+  
+} */
 .subBtn{
   margin-left: 250px;
   font-size: 20px;
@@ -181,7 +106,24 @@ button[type="submit"] {
 }
 .feedContainer{
 width: 50%;
+border: solid thick linear-gradient(blue,purple,orange,yellow);
+border-width: 5px;
+border-image-source: url('https://i.pinimg.com/originals/37/3f/77/373f77f1eb1a21c1c7e627c42c6b6136.gif') ;
+border-image-source: url('https://media2.giphy.com/media/xUPGcxmPVkyNEo9amc/giphy.gif?cid=ecf05e473rf06o9y9uyp9zywp1d8jff1aol1rqs906sh1tba&ep=v1_gifs_search&rid=giphy.gif&ct=g') ;
+border-style: solid;
+border-image: linear-gradient(blue,rgb(57, 0, 190),rgb(83, 0, 128),rgb(255, 115, 0),yellow);
+border-image-slice: 39%;
+margin: 20px;
 }
 .postContainer{
 width: 50%;
+border: solid thick black;
+border-width: 5px;
+border-image-source: url('https://i.pinimg.com/originals/37/3f/77/373f77f1eb1a21c1c7e627c42c6b6136.gif') ;
+border-image-source: url('https://media2.giphy.com/media/xUPGcxmPVkyNEo9amc/giphy.gif?cid=ecf05e473rf06o9y9uyp9zywp1d8jff1aol1rqs906sh1tba&ep=v1_gifs_search&rid=giphy.gif&ct=g') ;
+border-style: solid;
+border-image: linear-gradient(blue,rgb(57, 0, 190),rgb(83, 0, 128),rgb(255, 115, 0),yellow);
+border-image-slice: 39%;
+border-image-slice: 39%;
+margin: 20px;
 }
