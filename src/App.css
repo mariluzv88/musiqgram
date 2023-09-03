@@ -176,3 +176,12 @@ button[type="submit"] {
   border-radius: 15px;
   border: solid thick rgb(155, 55, 255);
 }
+.main{
+  display: flex;
+}
+.feedContainer{
+width: 50%;
+}
+.postContainer{
+width: 50%;
+}

@@ -4,7 +4,7 @@ export const AppContext = createContext()
 const posts = require('../ultilities/post.api');
 
 const AppContextProvider = (props)=>{
-    const [user,setUser] =useState(null)
+    // const [user,setUser] =useState(null)
     const [search,setSearch] =useState('')
     const [musiq,setMusiq]=useState(null)
     const [post,setPost]=useState(null)

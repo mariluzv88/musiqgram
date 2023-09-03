@@ -17,7 +17,7 @@ function Post() {
   return (
     <div className='post'>
    <h1>Create Post</h1>
-   <a href='/post'>X</a>
+   <a href='/'>X</a>
    <form onSubmit={handleSubmit} className='form' action='/post' method='POST'>
     image:<input type='text' name='image'/>
     {/* song:<input type='text' name='song'onChange={handleChange} value={search}/> */}

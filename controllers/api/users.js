@@ -2,7 +2,7 @@ const User = require('../../models/User')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
-const createUser = async (req, res) => {
+const create = async (req, res) => {
     console.log(req.body)
   try {
     // Add user to database
@@ -47,7 +47,7 @@ const unHeartUser = async(req,res)=>{
     res.status(500).json("Invalid");
   }
 }
-const loginUser = async(req,res)=>{
+const login = async(req,res)=>{
   try{
     // find user by email
     const user = await User.findOne({email:req.body.email})
@@ -89,7 +89,7 @@ function createJWT(user) {
       // data payload
       { user },
       process.env.SECRET,
-      { expiresIn: '24h' }
+      { expiresIn: '72h' }
     );
   }
   function checkToken(req, res) {
@@ -100,5 +100,6 @@ function createJWT(user) {
 
 
 module.exports = {
-    createUser,loginUser,checkToken,editUser,deleteUser,heartUser,unHeartUser
+    create,login,checkToken,
+    editUser,deleteUser,heartUser,unHeartUser
 }

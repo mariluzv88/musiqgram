@@ -3,7 +3,7 @@ const aPost = require('../../models/Post')
 const showPost = async(req, res) => {
     try{
         const post = await aPost.findById(req.params.id);
-        res.status(200).json(item);
+        res.status(200).json(post);
     }catch(e){
         res.status(400).json({ msg: e.message });
     }  
@@ -47,7 +47,7 @@ const deletePost = async(req,res)=>{
 }
 async function feed(req, res) {
     try{
-        const pokemons = await aPost.find({})
+        const posts = await aPost.find({})
       res.status(200).json(items);
     }catch(e){
       res.status(400).json({ msg: e.message });

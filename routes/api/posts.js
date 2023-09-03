@@ -5,7 +5,7 @@ const postCtrl = require('../../controllers/api/post');
 
 
 // GET feed
-router.get('/', postCtrl.feed);
+router.get('/feed', postCtrl.feed);
 // get post
 router.get('/:id', postCtrl.showPost);
 // create new post
