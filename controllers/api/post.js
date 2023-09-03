@@ -1,6 +1,6 @@
 const aPost = require('../../models/Post')
 
-const show = async(req, res) => {
+const showPost = async(req, res) => {
     try{
         const post = await aPost.findById(req.params.id);
         res.status(200).json(item);
@@ -16,10 +16,36 @@ const createPost = async (req, res) => {
         console.log(post)
         res.status(200).json(post);
     }catch(err){
-        res.status(400).json({ msg:err.message,reason:'Invalid'  });
+        res.status(400).json({ msg:err.message,reason:'Invalid Post'  });
     } 
 }
-async function index(req, res) {
+const editPost = async(req,res)=>{
+   try{
+     const editP = await aPost.findById(req.params.id)
+     if(editP.userID === req.body.userID){
+       await editP.updateOne({$set: req.body})
+
+     }else{
+        res.status(400).json({ msg:err.message,reason:'Invalid Post'  });
+     }
+    }catch (err){
+        res.status(400).json({ msg:err.message,reason:'Invalid Post'  });
+    }
+}
+const deletePost = async(req,res)=>{
+    try{
+        const deleteP = await aPost.findById(req.params.id)
+        if(deleteP.userID === req.body.userID){
+          await editP.deleteOne()
+   
+        }else{
+           res.status(400).json({ msg:err.message,reason:'Invalid Post'  });
+        }
+       }catch (err){
+           res.status(400).json({ msg:err.message,reason:'Invalid Post'  });
+       }
+}
+async function feed(req, res) {
     try{
         const pokemons = await aPost.find({})
       res.status(200).json(items);
@@ -31,6 +57,8 @@ async function index(req, res) {
    
 module.exports = {
     createPost,
-    show,
-    index
+    showPost,
+    feed,
+    editPost,
+    deletePost
   };
