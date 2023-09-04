@@ -12,12 +12,12 @@ function Post() {
 }
   const handleChange = (e)=>{
     setSearch(e.target.value)
-    getMusiq(search)
+    // getMusiq(search)
     }
   return (
     <div className='post'>
-   <h1>Create Post</h1>
    <a href='/'>X</a>
+   <h1>Create Post</h1>
    <form onSubmit={handleSubmit} className='form' action='/post' method='POST'>
     image:<input type='text' name='image'/>
     song:<input type='text' name='song'onChange={handleChange} value={search}/>

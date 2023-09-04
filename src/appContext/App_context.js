@@ -8,18 +8,19 @@ export const AppContext = createContext()
 const AppContextProvider = (props)=>{
     const [search,setSearch] =useState('')
     const [musiq,setMusiq]=useState(null)
-    // const [post,setPost]=useState([])
-    const getMusiq =async (searchTerm)=>{
-        const response = await axios.get(`https://shazam.p.rapidapi.com/search?term=${search}`,
-        // {params: {term: ''}},
-        {headers: {
-            'X-RapidAPI-Key': 'e92eec9951mshaba45c3344a2ad6p1f233ejsna6033bf06696',
-            'X-RapidAPI-Host': 'shazam.p.rapidapi.com'}
-          })
-        let res = response.data
-        console.log(res)
-        setMusiq(res)
-    }
+    const [post,setPost]=useState([])
+    const [postUser,setPostUser]=useState([])
+    // const getMusiq =async (searchTerm)=>{
+    //     const response = await axios.get(`https://shazam.p.rapidapi.com/search?term=${search}`,
+    //     // {params: {term: ''}},
+    //     {headers: {
+    //         'X-RapidAPI-Key': 'e92eec9951mshaba45c3344a2ad6p1f233ejsna6033bf06696',
+    //         'X-RapidAPI-Host': 'shazam.p.rapidapi.com'}
+    //       })
+    //     let res = response.data
+    //     console.log(res)
+    //     setMusiq(res)
+    // }
     // const getPost= async()=>{
     //   const res =await axios.get("api/post/feed")
     //   console.log(res)
@@ -28,25 +29,33 @@ const AppContextProvider = (props)=>{
     // musiqSearch = () => {
 
     // }
-    // useEffect(function() {
-    //     async function getPost() {
-    //       const post = await postAPI.getAll();
+  
+    useEffect(()=> {
+        async function getPost() {
+          const post = await postAPI.getAll();
         
          
-    //       setPost(post);
+          setPost(post);
+         
+        }
+        getPost();
+        }, []);
+    // useEffect(()=> {
+    //     async function getPostUser() {
+    //       const post = await postAPI.getById();
+        
+         
+    //       setPostUser(post);
          
     //     }
     //     getPost();
-       
-       
-       
-    //   }, []);
-    useEffect(()=>{
-      getMusiq()
-      // getPost()
-     },[])
+    //     }, [post.userID]);
+    // useEffect(()=>{
+    //   getMusiq()
+    //   // getPost()
+    //  },[])
     return(
-        <AppContext.Provider value={{musiq,setMusiq,search,setSearch,getMusiq}}>
+        <AppContext.Provider value={{post,setPost,postUser,setPostUser}}>
          {props.children}
         </AppContext.Provider>
     )

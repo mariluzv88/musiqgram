@@ -78,12 +78,20 @@ a{
   color: orangered;
 }
 .post{
-  border: solid thick rgb(39, 29, 59);
+  border: solid thick rgb(255, 0, 225);
+  background-color: rgba(0, 0, 0, 0.666);
   border-radius: 15px;
   overflow:hidden;
-  display: flex;
-  justify-content: scenter;
+  display: block;
+  text-align: center;
   padding: 80px;
+  height: 200px;
+  width: 400px;
+  transform: translate(-50%,-50%);
+  top: 40%;
+  left: 50%;
+  position: absolute;
+
 }
 /* .form{
   display: flex;
@@ -93,13 +101,15 @@ a{
   
 } */
 .subBtn{
-  margin-left: 250px;
+
+  margin-left: 0px;
   font-size: 20px;
   background-color: #5d00cf00;
   height: 50px;
   width: 150px;
   border-radius: 15px;
-  border: solid thick rgb(155, 55, 255);
+  border: solid thick rgb(51, 51, 51);
+  color: rgb(3, 203, 3);
 }
 .main{
   display: flex;
@@ -111,7 +121,7 @@ border-width: 5px;
 border-image-source: url('https://i.pinimg.com/originals/37/3f/77/373f77f1eb1a21c1c7e627c42c6b6136.gif') ;
 border-image-source: url('https://media2.giphy.com/media/xUPGcxmPVkyNEo9amc/giphy.gif?cid=ecf05e473rf06o9y9uyp9zywp1d8jff1aol1rqs906sh1tba&ep=v1_gifs_search&rid=giphy.gif&ct=g') ;
 border-style: solid;
-border-image: linear-gradient(blue,rgb(57, 0, 190),rgb(83, 0, 128),rgb(255, 115, 0),yellow);
+border-image: linear-gradient(rgb(30, 255, 0),rgb(0, 190, 6),rgb(255, 0, 191),rgb(247, 0, 255));
 border-image-slice: 39%;
 margin: 20px;
 }
@@ -122,7 +132,7 @@ border-width: 5px;
 border-image-source: url('https://i.pinimg.com/originals/37/3f/77/373f77f1eb1a21c1c7e627c42c6b6136.gif') ;
 border-image-source: url('https://media2.giphy.com/media/xUPGcxmPVkyNEo9amc/giphy.gif?cid=ecf05e473rf06o9y9uyp9zywp1d8jff1aol1rqs906sh1tba&ep=v1_gifs_search&rid=giphy.gif&ct=g') ;
 border-style: solid;
-border-image: linear-gradient(blue,rgb(57, 0, 190),rgb(83, 0, 128),rgb(255, 115, 0),yellow);
+border-image: linear-gradient(rgb(30, 255, 0),rgb(0, 190, 6),rgb(255, 0, 191),rgb(247, 0, 255));
 border-image-slice: 39%;
 border-image-slice: 39%;
 margin: 20px;
