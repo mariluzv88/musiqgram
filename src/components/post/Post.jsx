@@ -5,7 +5,7 @@ function Post() {
     let {musiq} = useContext(AppContext)
     let {search,setSearch} = useContext(AppContext)
     let {getMusiq} = useContext(AppContext)
-    let {setPost} = useContext(AppContext)
+    // let {setPost} = useContext(AppContext)
     const handleSubmit = (e)=>{
     e.preventDefault()
    

@@ -1,4 +1,5 @@
 import  { createContext, useEffect,useState } from 'react'
+import * as postAPI from '../ultilities/post.api'
 import axios from 'axios'
 import { getUser } from '../ultilities/users-service';
 
@@ -7,7 +8,7 @@ export const AppContext = createContext()
 const AppContextProvider = (props)=>{
     const [search,setSearch] =useState('')
     const [musiq,setMusiq]=useState(null)
-    const [post,setPost]=useState([])
+    // const [post,setPost]=useState([])
     const getMusiq =async (searchTerm)=>{
         const response = await axios.get(`https://shazam.p.rapidapi.com/search?term=${search}`,
         // {params: {term: ''}},
@@ -19,20 +20,33 @@ const AppContextProvider = (props)=>{
         console.log(res)
         setMusiq(res)
     }
-    const getPost= async()=>{
-      const res =await axios.get("api/post/feed")
-      console.log(res)
-     setPost(res.data)
-    }
+    // const getPost= async()=>{
+    //   const res =await axios.get("api/post/feed")
+    //   console.log(res)
+    //  setPost(res.data)
+    // }
     // musiqSearch = () => {
 
     // }
+    // useEffect(function() {
+    //     async function getPost() {
+    //       const post = await postAPI.getAll();
+        
+         
+    //       setPost(post);
+         
+    //     }
+    //     getPost();
+       
+       
+       
+    //   }, []);
     useEffect(()=>{
       getMusiq()
-      getPost()
+      // getPost()
      },[])
     return(
-        <AppContext.Provider value={{musiq,setMusiq,search,setSearch,getMusiq,post,setPost}}>
+        <AppContext.Provider value={{musiq,setMusiq,search,setSearch,getMusiq}}>
          {props.children}
         </AppContext.Provider>
     )
