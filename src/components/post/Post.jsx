@@ -20,7 +20,7 @@ function Post() {
    <a href='/'>X</a>
    <form onSubmit={handleSubmit} className='form' action='/post' method='POST'>
     image:<input type='text' name='image'/>
-    {/* song:<input type='text' name='song'onChange={handleChange} value={search}/> */}
+    song:<input type='text' name='song'onChange={handleChange} value={search}/>
     <input className='subBtn' type="submit" name="" value=" SUBMIT"/>
    </form>
    {/* {musiq?( musiq.map((tracks,i)=>{

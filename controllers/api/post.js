@@ -48,7 +48,7 @@ const deletePost = async(req,res)=>{
 async function feed(req, res) {
     try{
         const posts = await aPost.find({})
-      res.status(200).json(items);
+      res.json.status(200).json(posts)
     }catch(e){
       res.status(400).json({ msg: e.message });
     }

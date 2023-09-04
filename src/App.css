@@ -127,3 +127,21 @@ border-image-slice: 39%;
 border-image-slice: 39%;
 margin: 20px;
 }
+.postImg{
+height: 350px;
+width: 250px;
+}
+.showPost{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid white;
+  padding: 20px;
+}
+.postDeatz{
+  display: flex;
+  justify-content: space-between;
+}
+.postBox{
+  border: solid white;
+}

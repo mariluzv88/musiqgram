@@ -4,6 +4,9 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+// seed routes
+// const Post = require('./models/Post')
+// const Posts = require('./models/posts')
 
 const app = express();
 
@@ -21,11 +24,15 @@ app.use(require('./config/checkToken'));
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/posts', require('./routes/api/posts'));
+// app.get('/api/posts/seed', async(req,res)=>{
+//   await Post.create(posts)
+// })
 // Protect the API routes below from anonymous users
 const ensureLoggedIn = require('./config/ensureLoggedIn');
-app.use('/api/items', ensureLoggedIn, require('./routes/api/items'));
+const posts = require('./models/Post');
+
 // app.use('/api/posts', ensureLoggedIn, require('./routes/api/posts'));
-app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'));
+
 
 
 // The following "catch all" route (note the *) is necessary
