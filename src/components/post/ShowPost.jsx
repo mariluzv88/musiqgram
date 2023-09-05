@@ -5,23 +5,28 @@ import * as postAPI from '../../ultilities/post.api'
 import axios from 'axios'
 
 function ShowPost({user}) {
-    let {post,setPost}= useContext(AppContext)
+    // let {post,setPost}= useContext(AppContext)
     let {postUser}= useContext(AppContext)
+    let {post,dispatch}= useContext(AppContext)
     const [deletePost,setDeletePost]=useState()
    
     const handleDelete = async()=>{
-      const post = await postAPI.deleteById(post._id).then((post)=>{
+      const post = await postAPI.deleteById().then((post)=>{
        
           async function getPost() {
             const post = await postAPI.getAll();
             setPost(post);
           }})
-
-      
-       
-       
-     
     }
+    useEffect(()=> {
+      async function getPost() {
+        const post = await postAPI.getAll();
+         await dispatch({type:'makePosts',payload: post.reverse()})
+      //   setPost(post);
+      }
+      getPost();
+      }, []);
+  
  
   return (
     <div className='postBox'>
@@ -29,7 +34,7 @@ function ShowPost({user}) {
             <div >
             {/* <img className='postImg' src={'https://img.freepik.com/free-photo/colorful-picture-flower-with-black-background_1340-32623.jpg?w=2000'}/>
             <audio src='https://open.spotify.com/embed/track/48zFZh27QU5qsrBjn4C2FA?utm_source=generator'/> */}
-            {post.map((posts,i)=>{
+            {post? post.reverse().map((posts,i)=>{
             console.log(post)
             // if(post.userID === user.id){
             //  console.log(user.id)
@@ -46,12 +51,12 @@ function ShowPost({user}) {
                 <div className='postDeatz'>
                 <a href={`/pokemon/${posts._id}/edit`}>Edit</a>
               <form >
-                 <input onClick={()=>{handleDelete(posts._id)}} type='submit' value='DELETE'/> </form></div>
+                 <input onClick={()=>{handleDelete()}} type='submit' value='DELETE'/> </form></div>
                 
               
                </div>
            )
-       })}
+       }):'...loading'}
         
             {/* <img className='postImg' src={'https://img.freepik.com/free-photo/colorful-picture-flower-with-black-background_1340-32623.jpg?w=2000'}/>
             <audio src='https://open.spotify.com/embed/track/48zFZh27QU5qsrBjn4C2FA?utm_source=generator'/> */}

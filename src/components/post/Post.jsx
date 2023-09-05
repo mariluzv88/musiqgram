@@ -8,7 +8,7 @@ function Post({user}) {
     // let {getMusiq} = useContext(AppContext)
     const [title,setTitle]= useState('')
     const [image,setImage]= useState('')
-    let {setPost,post} = useContext(AppContext)
+    let {dispatch} = useContext(AppContext)
     const handleSubmit = async (e)=>{
     e.preventDefault()
     const post = {title,image}
@@ -20,6 +20,7 @@ function Post({user}) {
    const json = await res.json(post)
    setTitle('') 
    setImage('')
+   dispatch({type:'postPosts',payload: json})
 }
   const handleChange = (e)=>{
     // setSearch(e.target.value)
@@ -35,7 +36,7 @@ function Post({user}) {
     //   }, []);
   return (
     <div className='post'>
-   <a href='/'>X</a>
+   {/* <a href='/'>X</a> */}
    <h1>Create Post</h1>
    <form onSubmit={handleSubmit} className='form'  method='POST'>
     

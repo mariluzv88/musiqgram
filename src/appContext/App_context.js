@@ -1,4 +1,4 @@
-import  { createContext, useEffect,useState } from 'react'
+import  { createContext, useEffect,useReducer,useState } from 'react'
 import * as postAPI from '../ultilities/post.api'
 import axios from 'axios'
 import { getUser } from '../ultilities/users-service';
@@ -10,17 +10,33 @@ const AppContextProvider = (props)=>{
     const [musiq,setMusiq]=useState(null)
     const [post,setPost]=useState([])
     const [postUser,setPostUser]=useState([])
+    const postReducer = (state,action)=>{
+     switch(action.type){
+         case 'makePosts':
+             return {post:action.payload}
+         case 'postPosts':
+             return {post:[action.payload,...state.post]}
+         default:
+             return state   
+     }
+ 
+    }
+   const[state, dispatch]= useReducer(postReducer,{
+    post: null
+   })
+   
     
-    useEffect(()=> {
-        async function getPost() {
-          const post = await postAPI.getAll();
-          setPost(post);
-        }
-        getPost();
-        }, []);
+    // useEffect(()=> {
+    //     async function getPost() {
+    //       const post = await postAPI.getAll();
+    //       dispatch({type:'makePosts',payload: post})
+    //     //   setPost(post);
+    //     }
+    //     getPost();
+    //     }, []);
     
     return(
-        <AppContext.Provider value={{post,setPost,postUser,setPostUser}}>
+        <AppContext.Provider value={{post,setPost,postUser,setPostUser,...state,dispatch}}>
          {props.children}
         </AppContext.Provider>
     )

@@ -7,7 +7,7 @@ function Feed({user}) {
   return (
     <div>
       
-        <h1>Feed in posts here</h1>
+        {/* <h1>Feed in posts here</h1> */}
         <div> <ShowPost user={user}/> </div>
         
         {/* <img src={post.image}/> */}
