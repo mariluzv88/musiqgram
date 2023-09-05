@@ -29,21 +29,19 @@ const createPost = async (req, res) => {
 }
 const editPost = async(req,res)=>{
    try{
-     const editP = await aPost.findById(req.params.id)
-     if(editP.userID === req.body.userID){
-       await editP.updateOne({$set: req.body})
-
-     }else{
-        res.status(400).json({ msg:err.message,reason:'Invalid Post'  });
-     }
-    }catch (err){
-        res.status(400).json({ msg:err.message,reason:'Invalid Post'  });
-    }
+      const {id}= req.params.id
+        const editP = await aPost.findOneAndUpdate({id: id}.id,{...req.body})
+        res.status(200).json(editP)
+       }catch (err){
+           res.status(400).json({ msg:err.message,reason:'Invalid Post'  });
+       }
 }
 const deletePost = async(req,res)=>{
     try{
-      const {id}= req.params.id
-        const deleteP = await aPost.findOneAndRemove({id: id})
+      // const {id}= req.params
+      // console.log("remove ",id )
+      console.log(req.params)
+        const deleteP = await aPost.findByIdAndDelete(req.params.id)
         res.status(200).json(deleteP)
        }catch (err){
            res.status(400).json({ msg:err.message,reason:'Invalid Post'  });

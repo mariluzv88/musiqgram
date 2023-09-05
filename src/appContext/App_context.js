@@ -17,7 +17,9 @@ const AppContextProvider = (props)=>{
          case 'postPosts':
              return {post:[action.payload,...state.post]}
          case 'removePost':
-             return {post:state.post.filter((e)=>e._id !== action.payload._id)}
+             return {post:state.post.filter((e)=> e._id !== action.payload._id)}
+         case 'editPost':
+             return {post:state.post.filter((e)=> e._id !== action.payload._id)}
          default:
              return state   
      }

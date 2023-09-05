@@ -85,12 +85,12 @@ a{
   display: block;
   text-align: center;
   padding: 80px;
-  /* height: 200px;
-  width: 400px; */
-  /* transform: translate(-50%,-50%);
+  height: 200px;
+  width: 400px; 
+   transform: translate(-50%,-50%);
   top: 40%;
   left: 50%;
-  position: absolute; */
+  position: absolute;
 
 }
 /* .form{
