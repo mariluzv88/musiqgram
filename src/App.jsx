@@ -24,7 +24,7 @@ function App() {
          
           <Routes>
              <Route path='/post/new' element={<Post user={user}/>}/>
-             <Route path='/post' element={<Feed user={user}/>}/>
+             {/* <Route path='/post' element={<Feed user={user}/>}/> */}
              <Route path='/post/:id' element={<Select user={user}/>}/>
              {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
              <Route path="/*" element={<Navigate to="/post" />} />
