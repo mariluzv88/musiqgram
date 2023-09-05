@@ -14,7 +14,7 @@ function Main({user,setUser}) {
     <div className='main'>
       
       <div className='feedContainer'><Feed user={user}/></div>
-      <div className='postContainer'><Profile/>
+      <div className='postContainer'><Profile user={user} />
       <NavBar user={user} setUser={setUser}/>
       <a href='/post/new'>Create Post</a></div>
      {/* <button onClick={handleClick}>Create Post</button> */}

@@ -5,6 +5,11 @@ export function getAll(posts) {
     return sendRequest(`${BASE_URL}/feed`,'GET',posts);
   }
   
+
+  
+export function deleteById(id) {
+    return sendRequest(`${BASE_URL}/:id/delete`,'DELETE',id);
+  }
 // export function getById(id) {
 //     return sendRequest(`${BASE_URL}/feed/users?userId=${post.userId}`,'GET',id);
 //   }

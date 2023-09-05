@@ -151,6 +151,7 @@ width: 250px;
 .postDeatz{
   display: flex;
   justify-content: space-between;
+  border: solid white;
 }
 .postBox{
   border: solid white;

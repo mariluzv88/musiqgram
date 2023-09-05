@@ -1,5 +1,6 @@
 const aPost = require('../../models/Post')
 
+
 const showPost = async(req, res) => {
     try{
         const post = await aPost.findById(req.params.id);
@@ -9,12 +10,19 @@ const showPost = async(req, res) => {
     }  
 }
 const createPost = async (req, res) => {
+  const {title,image} = req.body
     try{
-        const post = await aPost.create(req.body);
-        await post.save()
       
-        console.log(post)
-        res.status(200).json(post);
+        const post = await aPost.create({
+          title,image
+          
+        });
+        await post.save().then(result=>{
+          res.status(200).json(post)
+        })
+      
+        // console.log(post)
+        // res.status(200).json(post);
     }catch(err){
         res.status(400).json({ msg:err.message,reason:'Invalid Post'  });
     } 

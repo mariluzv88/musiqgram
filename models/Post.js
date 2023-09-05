@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
+const {ObjectId}  = mongoose.Schema.Types
 
 
 const PostSchema = new mongoose.Schema({
   
-  userID:{ type: String, required: true },
+   title:{type: String, required:true},
    image:  { type: String, required: true },
-  song:  { type: String, required: true},
+  //  createdBy:{type:ObjectId, ref:"User"}
 },
   {timestamps:true}
    

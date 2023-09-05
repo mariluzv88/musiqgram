@@ -89,7 +89,7 @@ function createJWT(user) {
       // data payload
       { user },
       process.env.SECRET,
-      { expiresIn: '72h' }
+      { expiresIn: '144h' }
     );
   }
   function checkToken(req, res) {
