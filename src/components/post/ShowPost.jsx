@@ -19,7 +19,7 @@ function ShowPost({user}) {
  
     dispatch({type:'removePost', payload: json})
     }
-    const handleEdit = async()=>{
+    const handleEdit = async(id)=>{
       const res = await fetch(`http://localhost:3000/api/posts/${post._id}/edit`,{
       method:'PUT'
     })
@@ -60,8 +60,8 @@ function ShowPost({user}) {
                   <div className='postDeatz'>
                  
                   
-                  <button onClick={handleEdit}>EDIT </button>
-                 
+                  <button><a   onClick={() => handleEdit(post._id)}href={'/edit'} >EDIT</a> </button>
+                  {/* api/posts/'+post._id +' */}
                   <button onClick={() => handleDelete(post._id)}  >DELETE</button> 
                   </div>
                 

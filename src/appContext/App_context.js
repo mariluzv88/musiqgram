@@ -6,8 +6,8 @@ import { getUser } from '../ultilities/users-service';
 export const AppContext = createContext()
 
 const AppContextProvider = (props)=>{
-    const [search,setSearch] =useState('')
-    const [musiq,setMusiq]=useState(null)
+    const [title,setTitle]= useState('')
+    const [image,setImage]= useState('')
     const [post,setPost]=useState([])
     const [postUser,setPostUser]=useState([])
     const postReducer = (state,action)=>{
@@ -19,7 +19,7 @@ const AppContextProvider = (props)=>{
          case 'removePost':
              return {post:state.post.filter((e)=> e._id !== action.payload._id)}
          case 'editPost':
-             return {post:state.post.filter((e)=> e._id !== action.payload._id)}
+             return {post:state.post.filter((e)=> e._id == action.payload._id)}
          default:
              return state   
      }
@@ -40,7 +40,7 @@ const AppContextProvider = (props)=>{
     //     }, []);
     
     return(
-        <AppContext.Provider value={{post,setPost,postUser,setPostUser,...state,dispatch}}>
+        <AppContext.Provider value={{title,setTitle,image,setImage,...state,dispatch}}>
          {props.children}
         </AppContext.Provider>
     )

@@ -7,6 +7,7 @@ import Main from './pages/Main/Main'
 import Feed from './pages/feed/Feed';
 import Post from './components/post/Post';
 import Select from './pages/select/Select';
+import EditPost from './components/post/EditPost';
 import './App.css';
 
 
@@ -24,6 +25,7 @@ function App() {
          
           <Routes>
              <Route path='/post/new' element={<Post user={user}/>}/>
+             <Route path='/edit' element={<EditPost user={user}/>}/>
              {/* <Route path='/post' element={<Feed user={user}/>}/> */}
              <Route path='/post/:id' element={<Select user={user}/>}/>
              {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}

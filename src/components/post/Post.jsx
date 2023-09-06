@@ -3,11 +3,8 @@ import { AppContext } from '../../appContext/App_context'
 import axios from 'axios'
 
 function Post({user}) {
-    // let {musiq} = useContext(AppContext)
-    // let {search,setSearch} = useContext(AppContext)
-    // let {getMusiq} = useContext(AppContext)
-    const [title,setTitle]= useState('')
-    const [image,setImage]= useState('')
+    let {title,setTitle} = useContext(AppContext)
+    let {image,setImage} = useContext(AppContext)
     let {dispatch} = useContext(AppContext)
     const handleSubmit = async (e)=>{
     e.preventDefault()
