@@ -29,8 +29,8 @@ const createPost = async (req, res) => {
 }
 const editPost = async(req,res)=>{
    try{
-      const {id}= req.params.id
-        const editP = await aPost.findOneAndUpdate({id: id}.id,{...req.body})
+      // const {id}= req.params.id
+        const editP = await aPost.findByIdAndUpdate(req.params.id,{...req.body})
         res.status(200).json(editP)
        }catch (err){
            res.status(400).json({ msg:err.message,reason:'Invalid Post'  });

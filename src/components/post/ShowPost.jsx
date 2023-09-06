@@ -2,14 +2,26 @@ import {useContext} from 'react'
 import { AppContext } from '../../appContext/App_context'
 import { useState,useEffect } from 'react'
 import * as postAPI from '../../ultilities/post.api'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function ShowPost({user}) {
     // let {post,setPost}= useContext(AppContext)
     let {postUser}= useContext(AppContext)
     let {post,dispatch}= useContext(AppContext)
-    const [deletePost,setDeletePost]=useState()
-   
+    let {setID}= useContext(AppContext)
+    // useEffect(()=>{
+    //   async function handlePost(){
+    //     console.log(post._id)
+    //     setID(post._id)
+    //   }
+    //   handlePost()
+    // }
+    // , []);
+   const handlePost=(postId)=>{
+    console.log(post._id)
+   setID(postId)
+   }
     const handleDelete = async(id)=>{
       console.log(id)
       const res = await fetch(`http://localhost:3000/api/posts/${id}/delete`,{
@@ -19,13 +31,13 @@ function ShowPost({user}) {
  
     dispatch({type:'removePost', payload: json})
     }
-    const handleEdit = async(id)=>{
-      const res = await fetch(`http://localhost:3000/api/posts/${post._id}/edit`,{
-      method:'PUT'
-    })
-    const json = await res.json()
-    dispatch({type:'editPost', payload: json})
-    }
+    // const handleEdit = async(id)=>{
+    //   const res = await fetch(`http://localhost:3000/api/posts/${post._id}/edit`,{
+    //   method:'PUT'
+    // })
+    // const json = await res.json()
+    // // dispatch({type:'editPost', payload: json})
+    // }
     useEffect(()=> {
       async function getPost() {
         const post = await postAPI.getAll();
@@ -33,6 +45,7 @@ function ShowPost({user}) {
       //   setPost(post);
       }
       getPost();
+     
       }, []);
   
  
@@ -48,7 +61,7 @@ function ShowPost({user}) {
             //  console.log(user.id)
             // }
            return(
-               <div key={i}> 
+               <div className='p' key={i}> 
                  <div className='postDeatz'>
                     <h3>✨{post.title}✨ </h3>
                     <h3>likes 👍</h3>
@@ -59,8 +72,8 @@ function ShowPost({user}) {
                   </div>
                   <div className='postDeatz'>
                  
-                  
-                  <button><a   onClick={() => handleEdit(post._id)}href={'/edit'} >EDIT</a> </button>
+                  {/* setID(post._id) ,() => handlePost(post._id)*/}
+                  <button ><Link to='/edit' state={{ID:post._id,title:post.title,image:post.image}}>EDIT</Link></button>
                   {/* api/posts/'+post._id +' */}
                   <button onClick={() => handleDelete(post._id)}  >DELETE</button> 
                   </div>

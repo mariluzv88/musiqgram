@@ -33,7 +33,7 @@ function Post({user}) {
     //   }, []);
   return (
     <div className='post'>
-   <a href='/'>X</a>
+   <a className='x' href='/'>X</a>
    <h1>Create Post</h1>
    <form onSubmit={handleSubmit} className='form'  method='POST'>
     

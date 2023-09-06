@@ -10,6 +10,7 @@ const AppContextProvider = (props)=>{
     const [image,setImage]= useState('')
     const [post,setPost]=useState([])
     const [postUser,setPostUser]=useState([])
+    const [ID,setID]=useState(null)
     const postReducer = (state,action)=>{
      switch(action.type){
          case 'makePosts':
@@ -40,7 +41,7 @@ const AppContextProvider = (props)=>{
     //     }, []);
     
     return(
-        <AppContext.Provider value={{title,setTitle,image,setImage,...state,dispatch}}>
+        <AppContext.Provider value={{title,setTitle,image,setImage,...state,dispatch,ID,setID}}>
          {props.children}
         </AppContext.Provider>
     )

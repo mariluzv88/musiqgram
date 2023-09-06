@@ -13,7 +13,8 @@ function Main({user,setUser}) {
   return (
     <div className='main'>
       
-      <div className='feedContainer'><Feed user={user}/></div>
+      <div className='feedContainer'><Feed user={user}/>
+      </div>
       <div className='postContainer'><Profile user={user} />
       <NavBar user={user} setUser={setUser}/>
       {/* <Post/> */}

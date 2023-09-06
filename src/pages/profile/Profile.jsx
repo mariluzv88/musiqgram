@@ -5,8 +5,8 @@ function Profile({user}) {
     <div>
         <img  src={user.coverPic}/>
         <img src={user.profilePic}/>
-       
-        <h1>{user.mood[0]}</h1>
+{/*        
+        <h1>{user.mood[0]}</h1> */}
         <h1>{user.followers}</h1>
         <h1>{user.following}</h1>
     </div>
