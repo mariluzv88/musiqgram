@@ -1,6 +1,7 @@
 import {useContext,useEffect,useState} from 'react'
 import {useLocation} from 'react-router-dom'
 import { AppContext } from '../../appContext/App_context'
+import { Link } from 'react-router-dom'
 
 function EditPost() {
     let {state}=useLocation()
@@ -24,7 +25,7 @@ function EditPost() {
   return (
     <div className='post'>
    
-    <a className='x' href='/'>X</a>
+    <Link className='x' to='/'>X</Link>
     <h1>Update Post</h1>
     <form onSubmit={ handleSubmit} className='form'  >
      

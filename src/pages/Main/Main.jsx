@@ -4,6 +4,7 @@ import Post from '../../components/post/Post'
 import Feed from '../feed/Feed'
 import Profile from '../profile/Profile'
 import NavBar from '../../components/Nav/NavBar'
+import { Link } from 'react-router-dom'
 
 function Main({user,setUser}) {
   // const handleClick = ()=>{
@@ -18,7 +19,7 @@ function Main({user,setUser}) {
       <div className='postContainer'><Profile user={user} />
       <NavBar user={user} setUser={setUser}/>
       {/* <Post/> */}
-      <a href='/post/new'>Create Post</a>
+      <Link to='/post/new'>Create Post</Link>
       </div>
      {/* <button onClick={handleClick}>Create Post</button> */}
     </div>

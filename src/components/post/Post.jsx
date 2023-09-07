@@ -1,5 +1,6 @@
 import {useContext,useEffect,useState} from 'react'
 import { AppContext } from '../../appContext/App_context'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function Post({user}) {
@@ -33,7 +34,7 @@ function Post({user}) {
     //   }, []);
   return (
     <div className='post'>
-   <a className='x' href='/'>X</a>
+   <Link className='x' to='/'>X</Link>
    <h1>Create Post</h1>
    <form onSubmit={handleSubmit} className='form'  method='POST'>
     

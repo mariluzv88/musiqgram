@@ -17,7 +17,8 @@ p.error-message {
   text-align: center;
 }
 .login {
-  width: 50%;
+  height: 40vh;
+  width: 400px;
  border-radius: 15px;
  border: solid white;
  padding: 20px;
@@ -25,23 +26,23 @@ p.error-message {
 .title{
   padding:50px;
   border-radius: 1vmin;
-    color: orangered;
+    color: rgb(3, 203, 3);
   font-family: 'Franklin Gothic Medium';
-  font-size: 20px;
+  font-size: 28px;
   text-align: center;
 }
 .formContainer{
  width: 100px;
-  padding: 50px 40px 0px 120px ;
+  padding: 80px 40px 0px 150px ;
   display: flex;
   text-align: center;
   justify-content: center;
 }
 label {
   font-size: 2vmin;
-  color: orangered;
+  color: rgb(3, 203, 3);
   font-family: 'Franklin Gothic Medium';
-  font-size: 20px;
+  font-size: 28px;
 }
 .auth{
   display: flex;
@@ -50,13 +51,13 @@ label {
   padding: 50px;
   border-radius: 15px;
   border: solid white;
-  height: 300px;
+  height: 550px;
 }
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
-  color: orangered;
-  font-size: 3vmin;
+  color: rgb(3, 203, 3);
+  font-size: 20px;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
@@ -72,27 +73,39 @@ button:disabled, form:invalid button[type="submit"] {
   background-color: red;
   color: black;
 }
-a{
+link,a{
   text-decoration: none;
   cursor: pointer;
-  color: orangered;
+  color: rgb(3, 203, 3);
+  font-size: 30px;
+
+}
+nav{
+  font-size: 30px;
+  width: 750px;
 }
 .post{
   border: solid thick rgb(255, 0, 225);
   background-color: rgba(0, 0, 0, 0.666);
   border-radius: 15px;
   overflow:hidden;
-  display: block;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  justify-content: center;
   padding: 80px;
-  height: 200px;
-  width: 400px; 
+  height: 500px;
+  width: 800px; 
    transform: translate(-50%,-50%);
   top: 40%;
   left: 50%;
   position: fixed;
-
-
+  font-size: 25px;
+}
+input{
+  width: 350px;
+  height: 30px;
+  font-size: 22px;
 }
 /* .form{
   display: flex;
@@ -106,7 +119,7 @@ a{
   margin-left: 0px;
   font-size: 20px;
   background-color: #5d00cf00;
-  height: 50px;
+  height: 250px;
   width: 150px;
   border-radius: 15px;
   border: solid thick rgb(51, 51, 51);
@@ -141,8 +154,8 @@ left: 60%;
 margin: 20px;
 }
 .postImg{
-height: 550px;
-width: 350px;
+height: 600px;
+width: 600px;
 }
 .showPost{
   display: flex;
@@ -152,19 +165,34 @@ width: 350px;
   /* padding: 20px; */
 }
 .p{
-  border: solid rgba(255, 255, 255, 0.544);
+  border: solid rgb(255, 0, 225);
   border-radius: 15px;
-  width: 350px;
+  width: 800px;
+  height: 800px;
  margin: 10px;
 }
 .postDeatz{
   display: flex;
   justify-content: space-between;
+  font-size: 28px;
   
 }
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width: 450px;
+  margin: 0px 0px 150px 150px;
+}
+h1{
+  margin-bottom: 120px;
+  font-size: 80px;
+}
 .x{
-  font-size: 30px;
-  margin:0px 0px 50px 400px;
+  font-size: 50px;
+  margin:0px 0px 0px 500px;
   
 }
 /* .postBox{
