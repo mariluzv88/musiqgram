@@ -7,7 +7,7 @@ function EditPost() {
     let {state}=useLocation()
     const [title,setTitle] = useState(state.title)
     const [image,setImage] = useState(state.image)
-   
+    let {dispatch} = useContext(AppContext)
     const handleSubmit = async (e)=>{
         e.preventDefault()
         console.log("!!!!!!!!!")
@@ -18,14 +18,16 @@ function EditPost() {
       })
       const json = await res.json()
       console.log("error",json)
-  
+      setTitle('') 
+      setImage('')
+        dispatch({type:'postPosts',payload: json})
 
     }
 
   return (
     <div className='post'>
    
-    <Link className='x' to='/post'>X</Link>
+   <Link className='x' to='/'>X</Link>
     <h1>Update Post</h1>
     <form onSubmit={ handleSubmit} className='form'  >
      
