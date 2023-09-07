@@ -8,8 +8,6 @@ export const AppContext = createContext()
 const AppContextProvider = (props)=>{
     const [title,setTitle]= useState('')
     const [image,setImage]= useState('')
-    const [post,setPost]=useState([])
-    const [postUser,setPostUser]=useState([])
     const [ID,setID]=useState(null)
     const postReducer = (state,action)=>{
      switch(action.type){
@@ -19,9 +17,7 @@ const AppContextProvider = (props)=>{
              return {post:[action.payload,...state.post]}
          case 'removePost':
              return {post:state.post.filter((e)=> e._id !== action.payload._id)}
-         case 'editPost':
-             return {post:state.post.filter((e)=> e._id == action.payload._id)}
-         default:
+        default:
              return state   
      }
  

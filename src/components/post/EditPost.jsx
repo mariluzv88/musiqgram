@@ -7,7 +7,7 @@ function EditPost() {
     let {state}=useLocation()
     const [title,setTitle] = useState(state.title)
     const [image,setImage] = useState(state.image)
-    let {post,dispatch} = useContext(AppContext)
+   
     const handleSubmit = async (e)=>{
         e.preventDefault()
         console.log("!!!!!!!!!")
@@ -25,7 +25,7 @@ function EditPost() {
   return (
     <div className='post'>
    
-    <Link className='x' to='/'>X</Link>
+    <Link className='x' to='/post'>X</Link>
     <h1>Update Post</h1>
     <form onSubmit={ handleSubmit} className='form'  >
      

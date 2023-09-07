@@ -4,7 +4,7 @@
 
 ***
  
- <h3>Deployed Page: </h3>
+ <h3>Deployed Page: https://musiqgram.onrender.com</h3>
  <h3>Description</h3>
 full MERNstack application with CRUD and Auth methods.
  <h2> Dependencies</h2>

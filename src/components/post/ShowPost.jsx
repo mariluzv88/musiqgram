@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function ShowPost({user}) {
-    // let {post,setPost}= useContext(AppContext)
-    let {postUser}= useContext(AppContext)
     let {post,dispatch}= useContext(AppContext)
     let {setID}= useContext(AppContext)
 
