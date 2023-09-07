@@ -10,14 +10,7 @@ function ShowPost({user}) {
     let {postUser}= useContext(AppContext)
     let {post,dispatch}= useContext(AppContext)
     let {setID}= useContext(AppContext)
-    // useEffect(()=>{
-    //   async function handlePost(){
-    //     console.log(post._id)
-    //     setID(post._id)
-    //   }
-    //   handlePost()
-    // }
-    // , []);
+
    const handlePost=(postId)=>{
     console.log(post._id)
    setID(postId)
@@ -31,13 +24,7 @@ function ShowPost({user}) {
  
     dispatch({type:'removePost', payload: json})
     }
-    // const handleEdit = async(id)=>{
-    //   const res = await fetch(`http://localhost:3000/api/posts/${post._id}/edit`,{
-    //   method:'PUT'
-    // })
-    // const json = await res.json()
-    // // dispatch({type:'editPost', payload: json})
-    // }
+   
     useEffect(()=> {
       async function getPost() {
         const post = await postAPI.getAll();
@@ -53,13 +40,10 @@ function ShowPost({user}) {
     <div className='postBox'>
            
             <div >
-            {/* <img className='postImg' src={'https://img.freepik.com/free-photo/colorful-picture-flower-with-black-background_1340-32623.jpg?w=2000'}/>
-            <audio src='https://open.spotify.com/embed/track/48zFZh27QU5qsrBjn4C2FA?utm_source=generator'/> */}
+          
             {post? post.map((post,i)=>{
             console.log(post)
-            // if(post.userID === user.id){
-            //  console.log(user.id)
-            // }
+           
            return(
                <div className='p' key={i}> 
                  <div className='postDeatz'>
@@ -83,8 +67,6 @@ function ShowPost({user}) {
            )
        }):'...loading'}
         
-            {/* <img className='postImg' src={'https://img.freepik.com/free-photo/colorful-picture-flower-with-black-background_1340-32623.jpg?w=2000'}/>
-            <audio src='https://open.spotify.com/embed/track/48zFZh27QU5qsrBjn4C2FA?utm_source=generator'/> */}
             </div>
     </div>
   )

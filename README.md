@@ -29,6 +29,7 @@ full MERNstack application with CRUD and Auth methods.
       <li>useState</li>
       <li>useEffect</li>
       <li>useReducer</li>
+      <li>useLocation</li>
  <h4>Components</h4>
    <li>Main Page [ Nav |Profile section |Feed section |Projects section ]</li>
    
@@ -43,21 +44,17 @@ full MERNstack application with CRUD and Auth methods.
    
 </ul>
 <h2>MVP</h2>
+      <li>Mern, SPA</li>
       <li>Styled with CSS, Built with React js</li>
-      <li>Styled with CSS, Built with React js</li>
-<ul>
-      <li>Ultilizes a API</li>
-      <li>Has  projects featured</li>
-</ul>
+      <li>token based Auth</li>
+      <li>full CRUD</li>
+
  <h2>Post_MVP</h2>
 <ul>
-      <li>Fill up a more projects page</li>
-      <li>Use Three.js have a 2D interactive profile section</li>
+      <li>add music element to post</li>
+      <li>allow  User to add and update Profile</li>
+      <li>add User follow, Like ,comment, create playlist functionality </li>
       <li>Add a light mode </li>
-</ul>
- <h2>Known Bugs</h2>
-<ul>
-      <li>mini game takes two clicks on mount only</li>
-      <li> Drag Carousel could use a lil more slack</li>
       
 </ul>
+ <h2>Known Bugs</h2>

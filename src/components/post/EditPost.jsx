@@ -18,17 +18,7 @@ function EditPost() {
       const json = await res.json()
       console.log("error",json)
   
-        // e.preventDefault()
-//     const post = {title,image}
-//     const res = await fetch('http://localhost:3000/api/posts/:id/edit',{
-//       method:'PUT',
-//       body:JSON.stringify(post),
-//       headers: {"Content-type":"application/json"}
-//     })
-//    const json = await res.json(post)
-//    setTitle('') 
-//    setImage('')
-//    dispatch({type:'editPosts',payload: json})
+
     }
 
   return (
