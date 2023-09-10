@@ -8,6 +8,7 @@ export const AppContext = createContext()
 const AppContextProvider = (props)=>{
     const [title,setTitle]= useState('')
     const [image,setImage]= useState('')
+    const [song,setSong]= useState('')
     const [ID,setID]=useState(null)
     const postReducer = (state,action)=>{
      switch(action.type){
@@ -37,7 +38,7 @@ const AppContextProvider = (props)=>{
     //     }, []);
     
     return(
-        <AppContext.Provider value={{title,setTitle,image,setImage,...state,dispatch,ID,setID}}>
+        <AppContext.Provider value={{title,setTitle,image,setImage,...state,dispatch,ID,setID,song,setSong}}>
          {props.children}
         </AppContext.Provider>
     )
